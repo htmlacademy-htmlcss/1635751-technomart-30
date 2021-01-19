@@ -1,7 +1,7 @@
 # Личный проект «Техномарт»
 
 * Студент: [Никита Шахович](https://up.htmlacademy.ru/htmlcss/30/user/1635751).
-* Наставник: `Неизвестно`.
+* Наставник: [Илья Приходкин](https://htmlacademy.ru/profile/prikhodkin).
 
 ---
 
