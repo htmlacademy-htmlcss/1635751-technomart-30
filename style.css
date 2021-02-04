@@ -242,7 +242,7 @@ a {
 .block-popular {
   background-color: var(--basic-background-popular);
 }
- h2 {
+ .block-popular h2 {
   font-size: 30px;
   line-height: 30px;
   color: var(--basic-block-popular);
