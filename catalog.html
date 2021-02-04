@@ -23,30 +23,30 @@
           <input type="search" name="search" placeholder="Поиск:">
         </form>
       </div>
-      <div>
-        <a href="#">Закладки:0</a>
-        <a href="#">Корзина:10</a>
-        <a href="#">Оформить заказ</a>
+      <div class="main-cart">
+        <a class="bookmark" href="#">Закладки:0</a>
+        <a class="cart" href="#">Корзина:10</a>
+        <a class="checkout" href="#">Оформить заказ</a>
       </div>
     </section>
-      <div>
+      <div class="head-title">
         <p>Интернет-магазин<br>
           строительных материалов<br>
           и инструментов для ремонта</p>
       </div>
-      <div>
+      <div class="head-contact">
         <p>
-        <a href="tel:+78125550555">+7 (812) 555-05-55</a>
+          <a class="head-phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
           г. Санкт-Петербург, ул. Б.Конюшенная, д. 19/8
         </p>
       </div>
       <div>
-        <a href="#">Равшан Джамшутович</a>
-        <a href="#">Выйти</a>
-        <a href="#">Мои заказы</a>
-        <a href="#">Личный кабинет</a>
+        <a class="personal-infomation" href="#">Равшан Джамшутович</a>
+        <a class="exit-account" href="#">Выйти</a>
+        <a class="orders" href="#">Мои заказы</a>
+        <a class="personal-account" href="#">Личный кабинет</a>
       </div>
-      <nav>
+      <nav class="head-navigation">
         <ul>
           <li><a href="index.html">Главная</a></li>
           <li><a href="#">Компания</a></li>
@@ -58,42 +58,48 @@
         </ul>
       </nav>
   </header>
-  <main>
-    <div>
-      <a href="index.html">Домой</a>
-      <a href="#">Каталог</a>
-      <a href="#">Инструмент</a>
-      <a>Перфораторы</a>
-    </div>
-    <h1>Перфораторы</h1>
-    <section>
+  <main class="container">
+    <ul class="breadcrumbs">
+      <li>
+        <a href="index.html">Домой</a>
+      </li>
+      <li>
+        <a href="#">Каталог</a>
+      </li>
+      <li>
+        <a href="#">Инструмент</a>
+      </li>
+      <li class="breadcrumbs-current">Перфораторы</li>
+    </ul>
+    <h2 class="h2-catalog">Перфораторы</h2>
+    <section class="sorting">
       <h3>Сортировка:</h3>
-        <ul>
-          <li>
+        <ul class="sorting-list">
+          <li class="sorting-item">
               <input type="radio" checked name="sorting" value="price" id="sorting-price">
               <label for="sorting-price">по цене</label>
           </li>
-          <li>
+          <li class="sorting-item">
               <input type="radio" name="sorting" value="tupe" id="sorting-tupe">
               <label for="sorting-tupe">по типу</label>
           </li>
-          <li>
+          <li class="sorting-item">
               <input type="radio" name="sorting" value="functional" id="sorting-functional">
               <label for="sorting-functional">по функционалу</label>
           </li>
         </ul>
-        <ul>
-          <li>
+        <ul class="sorting-list">
+          <li class="sorting-item">>
               <input type="radio" checked name="topbottom" value="top" id="topbottom-top">
               <label for="topbottom-top">по возрастанию</label>
           </li>
-          <li>
+          <li class="sorting-item">>
               <input type="radio" name="topbottom" value="bottom" id="topbottom-bottom">
               <label for="topbottom-bottom">по убыванию</label>
           </li>
         </ul>
     </section>
-    <section>
+    <section class="">
       <h3>Фильтр</h3>
       <form method="get" action="https://echo.htmlacademy.ru/">
         <fieldset>
