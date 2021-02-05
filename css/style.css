@@ -18,8 +18,8 @@
   --basic-button-hover: #CA2C37;
   --basic-button-click: #BA2732;
   --basic-nav-rest: #32425C;            /* background блока навигации в покое */
-  --basic-block-content: #F7F3EC;       /* background контент блока под блоком фильтров */
-  --basic-block-name: #F2F6F8;          /* background в блоке <h1> */
+  --basic-block-content: #F7F3EC;       /* background блока фильтров и контент блока под блоком фильтров  */
+  --basic-block-name: #F2F6F8;          /* background в блоке <h2> */
   --basic-block-cart: #63A63E;          /* background оформить заказ и купить в покое, оформить заказ (клик) */
   --basic-header-rest: #293449;
   --basic-bookmarks-click: #161D29;     /* background при клике закладкам */
@@ -56,7 +56,7 @@ body {
   line-height: 24px;
   font-weight: 400;
   color: var(--basic-white);
-  background-color: var(--basic-white);   /* ЗАМЕНИТЬ НА БЕЛЫЙ */
+  background-color: var(--basic-block-cart);   /* ЗАМЕНИТЬ НА БЕЛЫЙ */
 }
 
 img {
@@ -112,7 +112,7 @@ a {
 .cart:active{
   color: var(--basic-rgba-header);
 }
-.cart {
+.cart, .cart-item {
   color: var(--basic-white);
 }
 .bookmark {
@@ -145,17 +145,26 @@ a {
   font-weight: bold;
   border: 3px solid #FFFFFF;
 }
-.login a {
+.login a, .personal-infomation {
   background-color: var(--basic-white);
   color: var(--basic-black);
   font-size: 21px;
   line-height: 21px;
 }
 .login a:hover,
-.login a:focus {
+.login a:focus,
+.personal-infomation:hover,
+.personal-infomation:focus,
+.orders:hover,
+.orders:focus,
+.personal-account:hover,
+.personal-account:focus{
   color: var(--basic-hover);
 }
-.login a:active {
+.login a:active,
+.personal-infomation:active,
+.personal-account:active,
+.orders:active {
   color: var(--basic-click);
 }
 .head-navigation ul{
@@ -249,35 +258,36 @@ a {
   text-transform: uppercase;
   font-weight: 400;
 }
-.button {
+.button-red {
   text-transform: uppercase;
   font-size: 14px;
   line-height: 18px;
   color: var(--basic-white);
   background-color: var(--basic-button-rest);
 }
-.button:hover,
-.button:focus {
+.button-red:hover,
+.button-red:focus {
   background-color: var(--basic-button-hover);
 }
-.button:active {
+.button-red:active {
   background-color: var(--basic-button-click);
 }
-.popular-product-list {
+.popular-product-list, .catalog-list {
   list-style: none;
 }
-.popular-product-item {
+.popular-product-item, .catalog-item {
   border: 1px solid #EAEAEA;
 }
-.popular-product-item p{
+.popular-product-item p, .catalog-item{
   font-family: 'PT Sans', sans-serif;
   font-size: 17px;
   line-height: 18px;
   font-weight: bold;
   color: var(--basic-sales-product);
 }
-.popular-product-item .product-price {
-  background-image: url("img/icons/red-button-price.svg");
+.popular-product-item .product-price,
+.catalog-item .product-price{
+  background-image: url("../img/icons/red-button-price.svg");
   background-repeat: no-repeat;
   background-size: contain;
   color: var(--basic-white);
@@ -289,7 +299,8 @@ a {
 em {
   display: none;
 }
-.popular-product-item:hover em {
+.popular-product-item:hover em,
+.catalog-item:hover em{
   display: block;
 }
 em .emerging-buy{
@@ -309,8 +320,6 @@ em .emerging-buy{
 .emerging-buy:active {
   background-color: var(--basic-buy-click);
 }
-
-
 em .emerging-bookmarks{
   color: var(--basic-block-popular);
   font-size: 14px;
@@ -334,7 +343,7 @@ em .emerging-bookmarks{
   text-shadow: none;
 
 }
-.popular-product-item a {
+.popular-product-item a, .catalog-item a {
   color: var(--basic-black);
   font-family: 'PT Sans', sans-serif;;
   font-size: 18px;
@@ -385,7 +394,7 @@ em .emerging-bookmarks{
 .description-service {
   list-style: none;
 }
-.description-service li h2 {
+.description-service li h2, .h2-catalog {
   color: var(--basic-block-popular);
   text-transform: none;
   font-size: 30px;
@@ -445,7 +454,7 @@ em .emerging-bookmarks{
   line-height: 30px;
 }
 .description-company p {
-  font-family: 'PT Sans', sans-serif;;
+  font-family: 'PT Sans', sans-serif;
   font-size: 13px;
   line-height: 24px;
   color: var(--basic-black);
@@ -553,4 +562,121 @@ em .emerging-bookmarks{
 .footer-link:active {
   color: var(--basic-button-rest);
   text-decoration: none;
+}
+
+    /* catalog header*/
+.cart-item {
+  background-color: var(--basic-button-rest);
+}
+.orders, .personal-account {
+  font-size: 16px;
+  line-height: 18px;
+  color: var(--basic-block-popular);
+}
+.breadcrumbs {
+  list-style: none;
+}
+.breadcrumbs a, .breadcrumbs-current {
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--basic-black);
+  text-transform: uppercase;
+}
+.breadcrumbs-current {
+  color: var(--basic-sales-product);
+}
+
+/* filters adn sorting*/
+.h2-catalog {
+  background-color: var(--basic-block-name);
+}
+.sorting {
+  background-color: var(--basic-block-content);
+}
+.sorting-list {
+  list-style: none;
+}
+
+.sorting h3, .sorting-item, .filters h3, .filters {
+  color: var(--basic-black);
+  font-size: 13px;
+  line-height: 18px;
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.sorting-item label{
+  opacity: 0.3;
+  border-bottom: 1px dotted var(--basic-hover);
+  list-style: none;
+}
+
+.sorting-input-checkbox:checked + label {
+  color: var(--basic-hover);
+  opacity: 1;
+  border-bottom: none;
+}
+.sorting-item label:hover,
+.sorting-item label:focus {
+  color: var(--basic-black);
+  opacity: 1;
+  border-bottom: 1px solid var(--basic-hover);
+  line-height: 17px;
+}
+
+.filters h3 {
+  background-color: var(--basic-block-content);
+}
+
+.filters legend {
+  font-size: 17px;
+  line-height: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.price-max input, .price-min input, .price-range {
+  background-color: var(--basic-block-content);
+}
+.manufacturer-filter ul {
+  list-style: none;
+}
+.manufacturer-filter label {
+  font-size: 15px;
+  line-height: 19px;
+}
+
+.filter-input-checkbox:hover + label,
+.filter-input-checkbox:focus + label,
+.filter-input-checkbox:checked + label{
+}
+.filter-input-checkbox:disabled + label {
+  opacity: 0.4;
+}
+.filter-input-radio:hover + label,
+.filter-input-radio:focus + label,
+.filter-input-radio:checked + label{
+}
+.filter-input-radio:disabled + label{
+  opacity: 0.4;
+}
+.food-filter ul {
+  list-style: none;
+}
+.food-filter label {
+  font-size: 15px;
+  line-height: 19px
+}
+.filter-button {
+  background-color: var(--basic-white);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+
+/* pagination-list */
+.pagination-list {
+  list-style: none;
 }

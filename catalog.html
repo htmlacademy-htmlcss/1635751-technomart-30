@@ -5,8 +5,8 @@
   <title>Каталог - «Техномарт»</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <link href="normalize.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
   <link rel="icon" href="favicon.ico">
   <link rel="icon" href="img/favicon/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="img/favicon/180.png">
@@ -25,7 +25,7 @@
       </div>
       <div class="main-cart">
         <a class="bookmark" href="#">Закладки:0</a>
-        <a class="cart" href="#">Корзина:10</a>
+        <a class="cart-item" href="#">Корзина:10</a>
         <a class="checkout" href="#">Оформить заказ</a>
       </div>
     </section>
@@ -76,25 +76,25 @@
       <h3>Сортировка:</h3>
         <ul class="sorting-list">
           <li class="sorting-item">
-              <input type="radio" checked name="sorting" value="price" id="sorting-price">
+              <input class="sorting-input-checkbox" type="radio" checked name="sorting" value="price" id="sorting-price">
               <label for="sorting-price">по цене</label>
           </li>
           <li class="sorting-item">
-              <input type="radio" name="sorting" value="tupe" id="sorting-tupe">
+              <input class="sorting-input-checkbox" type="radio" name="sorting" value="tupe" id="sorting-tupe">
               <label for="sorting-tupe">по типу</label>
           </li>
           <li class="sorting-item">
-              <input type="radio" name="sorting" value="functional" id="sorting-functional">
+              <input class="sorting-input-checkbox" type="radio" name="sorting" value="functional" id="sorting-functional">
               <label for="sorting-functional">по функционалу</label>
           </li>
         </ul>
         <ul class="sorting-list">
-          <li class="sorting-item">>
-              <input type="radio" checked name="topbottom" value="top" id="topbottom-top">
+          <li class="sorting-item">
+              <input class="sorting-input-checkbox" type="radio" checked name="topbottom" value="top" id="topbottom-top">
               <label for="topbottom-top">по возрастанию</label>
           </li>
-          <li class="sorting-item">>
-              <input type="radio" name="topbottom" value="bottom" id="topbottom-bottom">
+          <li class="sorting-item">
+              <input class="sorting-input-checkbox" type="radio" name="topbottom" value="bottom" id="topbottom-bottom">
               <label for="topbottom-bottom">по убыванию</label>
           </li>
         </ul>
@@ -102,20 +102,19 @@
     <section class="filters">
       <h3>Фильтр</h3>
       <form class="filter" method="get" action="https://echo.htmlacademy.ru/">
-        <fieldset>
+        <fieldset class="price-filter">
           <legend>Цена:</legend>
-<!--          <label>-->
-<!--            <input type="range" name="lineprice" min="1" max="30000" value="1">-->
-<!--            тут будет ползунок-->
-<!--          </label>-->
-          <label>
+          <label class="price-range">
+            <input type="range" name="lineprice" min="1" max="30000" value="1">
+          </label>
+          <label class="price-min">
             <input type="text" name="minprice" value="0">
           </label>
-          <label>
+          <label class="price-max">
             - <input type="text" name="maxprice" value="30000">
           </label>
         </fieldset>
-        <fieldset>
+        <fieldset class="manufacturer-filter">
           <legend>Производители:</legend>
           <ul>
             <li class="filter-option filter-checkbox">
@@ -140,7 +139,7 @@
             </li>
           </ul>
         </fieldset>
-        <fieldset>
+        <fieldset class="food-filter">
           <legend>Питание:</legend>
           <ul>
             <li class="filter-option filter-radio">
@@ -157,7 +156,7 @@
       </form>
     </section>
     <section class="catalog">
-      <ul class="catalog list">
+      <ul class="catalog-list">
         <li class="catalog-item">
 <!--          сейчас надо прописывать высоту и ширину? я так думаю лучше прописать в css максимальную высоту и ширину.-->
           <img src="img/bosch-bfg-6000.jpg" height="112" width="127" alt="Перфоратор BOSCH BFG 6000">
@@ -180,8 +179,11 @@
           <p class="product-price">25500 р.</p>
         </li>
         <li class="catalog-item">
-          <a href="#">Купить</a>
-          <a href="#">В закладки</a>
+          <img src="img/bosch-bfg-3000-2000.jpg" height="128" width="144" alt="Перфоратор BOSCH BFG 2000">
+          <em>
+            <a class="emerging-buy" href="#">купить</a>
+            <a class="emerging-bookmarks" href="#">в закладки</a>
+          </em>
           <a href="#"><h4>Перфоратор BOSCH BFG 6000</h4></a>
           <p><del>30500 р.</del></p>
           <p class="product-price">25500 р.</p>
