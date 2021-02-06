@@ -43,7 +43,9 @@
   --basic-white-rgba: rgba(255, 255, 255, 0.3);
   --basic-hover-rgba: rgba(77.3, 77.3, 77.3, 0.3);
   --basic-active-rgba: rgba(169, 169, 169, 0.3);
-  --basic-footer-active: rgba(241, 245, 247, 0.5)
+  --basic-footer-active: rgba(241, 245, 247, 0.5);
+  --basic-border-pagination: #E5E5E5;
+  --basic-border-active: #EE3643;
 }
 
 /* Global */
@@ -406,7 +408,7 @@ em .emerging-bookmarks{
   line-height: 24px;
   color: var(--basic-black);
 }
-.service-delivery {
+.service-list label {
   font-size: 21px;
   line-height: 30px;
   font-weight: bold;
@@ -414,38 +416,17 @@ em .emerging-bookmarks{
   background-color: var(--basic-nav-rest) ;
   box-shadow: 0 1px 0 #293449, inset 0 1px 0 #405069
 }
-.service-guarantee {
-  font-size: 21px;
-  line-height: 30px;
-  font-weight: bold;
-  color: var(--basic-white);
-  background-color: var(--basic-nav-rest) ;
-  box-shadow: 0 1px 0 #293449, inset 0 1px 0 #405069
-}
-.service-credit{
-  font-size: 21px;
-  line-height: 30px;
-  font-weight: bold;
-  color: var(--basic-white);
-  background-color: var(--basic-nav-rest) ;
-  box-shadow: 0 1px 0 #293449, inset 0 1px 0 #405069
-}
-.service-delivery input:checked + label,
-.service-guarantee input:checked + label,
-.service-credit input:checked + label{
+
+.service-item input:checked + label {
   color: var(--basic-block-popular);
   background-color: var(--basic-white);
   box-shadow: 0 1px 0 #FFFFFF;
 }
-
-.service-delivery:hover,
-.service-guarantee:hover,
-.service-credit:hover {
+.service-item label:hover {
   color: var(--basic-white);
   background-color: var(--basic-header-rest);
   box-shadow: 0 1px 0 #293449, inset 0 1px 0 #405069;
 }
-
 /*  description-company  */
 .description-company h2 {
   color: var(--basic-black);
@@ -599,7 +580,7 @@ em .emerging-bookmarks{
   list-style: none;
 }
 
-.sorting h3, .sorting-item, .filters h3, .filters {
+.sorting h3, .sorting-item label, .filters h3, .filters {
   color: var(--basic-black);
   font-size: 13px;
   line-height: 18px;
@@ -613,24 +594,20 @@ em .emerging-bookmarks{
   border-bottom: 1px dotted var(--basic-hover);
   list-style: none;
 }
-
-.sorting-input-checkbox:checked + label {
+.sorting-item input:checked + label {
   color: var(--basic-hover);
   opacity: 1;
   border-bottom: none;
 }
-.sorting-item label:hover,
-.sorting-item label:focus {
+.sorting-item label:hover {
   color: var(--basic-black);
   opacity: 1;
   border-bottom: 1px solid var(--basic-hover);
   line-height: 17px;
 }
-
 .filters h3 {
   background-color: var(--basic-block-content);
 }
-
 .filters legend {
   font-size: 17px;
   line-height: 30px;
@@ -680,3 +657,25 @@ em .emerging-bookmarks{
 .pagination-list {
   list-style: none;
 }
+.pagination-item a{
+  border: 1px solid var(--basic-border-pagination);
+  border-radius: 2px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: normal;
+  color: var(--basic-black);
+  background-color: var(--basic-white);
+}
+.pagination-item a:active{
+  border: 1px solid var(--basic-border-active);
+}
+.pagination-item-current a,
+.pagination-item-current a:hover,
+.pagination-item-current a:focus,
+.pagination-item-current a:active {
+  border: none;
+  background-color: var(--basic-button-rest);
+  color: var(--basic-white);
+}
+
