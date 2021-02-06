@@ -67,7 +67,7 @@ body {
   line-height: 24px;
   font-weight: 400;
   color: var(--basic-white);
-  background-color: var(--basic-block-cart);   /* ЗАМЕНИТЬ НА БЕЛЫЙ */
+  background-color: var(--basic-white);   /* ЗАМЕНИТЬ НА БЕЛЫЙ */
 }
 
 img {
@@ -388,13 +388,13 @@ em .emerging-bookmarks{
 .service-list {
   list-style: none;
 }
-.service h2 {
+.service h2, .description-perforators h2 {
   color: var(--basic-black);
   text-transform: none;
   font-size: 30px;
   line-height: 30px;
 }
-.service p {
+.service p, .description-perforators p {
   font-family: 'PT Sans', sans-serif;;
   font-size: 13px;
   line-height: 24px;
@@ -688,5 +688,11 @@ em .emerging-bookmarks{
   border: none;
   background-color: var(--basic-button-rest);
   color: var(--basic-white);
+}
+
+   /*description page*/
+
+.description-perforators  {
+  background-color: var(--basic-block-service);
 }
 
