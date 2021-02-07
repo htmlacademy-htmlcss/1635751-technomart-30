@@ -18,8 +18,8 @@
   --basic-button-hover: #CA2C37;
   --basic-button-click: #BA2732;
   --basic-nav-rest: #32425C;            /* background блока навигации в покое */
-  --basic-block-content: #F7F3EC;       /* background контент блока под блоком фильтров */
-  --basic-block-name: #F2F6F8;          /* background в блоке <h1> */
+  --basic-block-content: #F7F3EC;       /* background блока фильтров и контент блока под блоком фильтров  */
+  --basic-block-name: #F2F6F8;          /* background в блоке <h2> */
   --basic-block-cart: #63A63E;          /* background оформить заказ и купить в покое, оформить заказ (клик) */
   --basic-header-rest: #293449;
   --basic-bookmarks-click: #161D29;     /* background при клике закладкам */
@@ -52,7 +52,9 @@
   --basic-border-bookmarks-hover: #32425C;
   --basic-shadow-block-service: #293449;
   --basic-shadow-block-service2: #405069;
-  --basic-gradient: #212A3A
+  --basic-gradient: #212A3A;
+  --basic-border-pagination: #E5E5E5;
+  --basic-border-active: #EE3643;
 }
 
 /* Global */
@@ -120,7 +122,7 @@ a {
 .cart:active{
   color: var(--basic-rgba-header);
 }
-.cart {
+.cart, .cart-item {
   color: var(--basic-white);
 }
 .bookmark {
@@ -152,17 +154,26 @@ a {
   font-weight: bold;
   border: 3px solid var(--basic-white);
 }
-.login a {
+.login a, .personal-infomation {
   background-color: var(--basic-white);
   color: var(--basic-black);
   font-size: 21px;
   line-height: 21px;
 }
 .login a:hover,
-.login a:focus {
+.login a:focus,
+.personal-infomation:hover,
+.personal-infomation:focus,
+.orders:hover,
+.orders:focus,
+.personal-account:hover,
+.personal-account:focus{
   color: var(--basic-hover);
 }
-.login a:active {
+.login a:active,
+.personal-infomation:active,
+.personal-account:active,
+.orders:active {
   color: var(--basic-click);
 }
 .head-navigation ul{
@@ -249,41 +260,42 @@ a {
 .block-popular {
   background-color: var(--basic-background-popular);
 }
-.block-popular h2 {
+ .block-popular h2 {
   font-size: 30px;
   line-height: 30px;
   color: var(--basic-block-popular);
   text-transform: uppercase;
   font-weight: 400;
 }
-.button {
+.button-red {
   text-transform: uppercase;
   font-size: 14px;
   line-height: 18px;
   color: var(--basic-white);
   background-color: var(--basic-button-rest);
 }
-.button:hover,
-.button:focus {
+.button-red:hover,
+.button-red:focus {
   background-color: var(--basic-button-hover);
 }
-.button:active {
+.button-red:active {
   background-color: var(--basic-button-click);
 }
-.popular-product-list {
+.popular-product-list, .catalog-list {
   list-style: none;
 }
-.popular-product-item {
+.popular-product-item, .catalog-item  {
   border: 1px solid var(--basic-border-product);
 }
-.popular-product-item p{
+.popular-product-item p, .catalog-item{
   font-family: 'PT Sans', sans-serif;
   font-size: 17px;
   line-height: 18px;
   font-weight: bold;
   color: var(--basic-sales-product);
 }
-.popular-product-item .product-price {
+.popular-product-item .product-price,
+.catalog-item .product-price {
   background-image: url("../img/icons/red-button-price.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -296,7 +308,8 @@ a {
 em {
   display: none;
 }
-.popular-product-item:hover em {
+.popular-product-item:hover em,
+.catalog-item:hover em{
   display: block;
 }
 em .emerging-buy{
@@ -338,7 +351,7 @@ em .emerging-bookmarks{
   box-shadow: none;
   text-shadow: none;
 }
-.popular-product-item a {
+.popular-product-item a, .catalog-item a {
   color: var(--basic-black);
   font-family: 'PT Sans', sans-serif;;
   font-size: 18px;
@@ -375,13 +388,13 @@ em .emerging-bookmarks{
 .service-list {
   list-style: none;
 }
-.service h2 {
+.service h2, .description-perforators h2 {
   color: var(--basic-black);
   text-transform: none;
   font-size: 30px;
   line-height: 30px;
 }
-.service p {
+.service p, .description-perforators p {
   font-family: 'PT Sans', sans-serif;;
   font-size: 13px;
   line-height: 24px;
@@ -390,7 +403,7 @@ em .emerging-bookmarks{
 .description-service {
   list-style: none;
 }
-.description-service h2 {
+.description-service h2, .h2-catalog {
   color: var(--basic-block-popular);
   text-transform: none;
   font-size: 30px;
@@ -402,15 +415,7 @@ em .emerging-bookmarks{
   line-height: 24px;
   color: var(--basic-black);
 }
-.service-delivery {
-  font-size: 21px;
-  line-height: 30px;
-  font-weight: bold;
-  color: var(--basic-white);
-  background-color: var(--basic-nav-rest) ;
-  box-shadow: 0 1px 0 #293449, inset 0 1px 0 #405069
-}
-.service-guarantee {
+.service-list label {
   font-size: 21px;
   line-height: 30px;
   font-weight: bold;
@@ -418,24 +423,13 @@ em .emerging-bookmarks{
   background-color: var(--basic-nav-rest) ;
   box-shadow: 0 1px 0 var(--basic-shadow-block-service), inset 0 1px 0 var(--basic-shadow-block-service2);
 }
-.service-credit{
-  font-size: 21px;
-  line-height: 30px;
-  font-weight: bold;
-  color: var(--basic-white);
-  background-color: var(--basic-nav-rest) ;
-  box-shadow: 0 1px 0 var(--basic-shadow-block-service), inset 0 1px 0 var(--basic-shadow-block-service2);
-}
-.service-delivery input:checked + label,
-.service-guarantee input:checked + label,
-.service-credit input:checked + label{
+
+.service-item input:checked + label {
   color: var(--basic-block-popular);
   background-color: var(--basic-white);
   box-shadow: 0 1px 0 var(--basic-white);
 }
-.service-delivery:hover,
-.service-guarantee:hover,
-.service-credit:hover {
+.service-item label:hover {
   color: var(--basic-white);
   background-color: var(--basic-header-rest);
   box-shadow: 0 1px 0 var(--basic-shadow-block-service), inset 0 1px 0 var(--basic-shadow-block-service2);
@@ -450,7 +444,7 @@ em .emerging-bookmarks{
   line-height: 30px;
 }
 .description-company p {
-  font-family: 'PT Sans', sans-serif;;
+  font-family: 'PT Sans', sans-serif;
   font-size: 13px;
   line-height: 24px;
   color: var(--basic-black);
@@ -561,3 +555,144 @@ em .emerging-bookmarks{
   color: var(--basic-button-rest);
   text-decoration: none;
 }
+
+    /* catalog header*/
+.cart-item {
+  background-color: var(--basic-button-rest);
+}
+.orders, .personal-account {
+  font-size: 16px;
+  line-height: 18px;
+  color: var(--basic-block-popular);
+}
+.breadcrumbs {
+  list-style: none;
+}
+.breadcrumbs a, .breadcrumbs-current {
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--basic-black);
+  text-transform: uppercase;
+}
+.breadcrumbs-current {
+  color: var(--basic-sales-product);
+}
+
+/* filters adn sorting*/
+.h2-catalog {
+  background-color: var(--basic-block-name);
+}
+.sorting {
+  background-color: var(--basic-block-content);
+}
+.sorting-list {
+  list-style: none;
+}
+
+.sorting h3, .sorting-item label, .filters h3, .filters {
+  color: var(--basic-black);
+  font-size: 13px;
+  line-height: 18px;
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.sorting-item label{
+  opacity: 0.3;
+  border-bottom: 1px dotted var(--basic-hover);
+  list-style: none;
+}
+.sorting-item input:checked + label {
+  color: var(--basic-hover);
+  opacity: 1;
+  border-bottom: none;
+}
+.sorting-item label:hover {
+  color: var(--basic-black);
+  opacity: 1;
+  border-bottom: 1px solid var(--basic-hover);
+  line-height: 17px;
+}
+.filters h3 {
+  background-color: var(--basic-block-content);
+}
+.filters legend {
+  font-size: 17px;
+  line-height: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.price-max input, .price-min input, .price-range {
+  background-color: var(--basic-block-content);
+}
+.manufacturer-filter ul {
+  list-style: none;
+}
+.manufacturer-filter label {
+  font-size: 15px;
+  line-height: 19px;
+}
+
+.filter-input-checkbox:hover + label,
+.filter-input-checkbox:focus + label,
+.filter-input-checkbox:checked + label{
+}
+.filter-input-checkbox:disabled + label {
+  opacity: 0.4;
+}
+.filter-input-radio:hover + label,
+.filter-input-radio:focus + label,
+.filter-input-radio:checked + label{
+}
+.filter-input-radio:disabled + label{
+  opacity: 0.4;
+}
+.food-filter ul {
+  list-style: none;
+}
+.food-filter label {
+  font-size: 15px;
+  line-height: 19px
+}
+.filter-button {
+  background-color: var(--basic-white);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+
+/* pagination-list */
+.pagination-list {
+  list-style: none;
+}
+.pagination-item a{
+  border: 1px solid var(--basic-border-pagination);
+  border-radius: 2px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: normal;
+  color: var(--basic-black);
+  background-color: var(--basic-white);
+}
+.pagination-item a:active{
+  border: 1px solid var(--basic-border-active);
+}
+.pagination-item-current a,
+.pagination-item-current a:hover,
+.pagination-item-current a:focus,
+.pagination-item-current a:active {
+  border: none;
+  background-color: var(--basic-button-rest);
+  color: var(--basic-white);
+}
+
+   /*description page*/
+
+.description-perforators  {
+  background-color: var(--basic-block-service);
+}
+
