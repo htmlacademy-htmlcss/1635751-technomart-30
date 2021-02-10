@@ -59,7 +59,7 @@
 
 /* Global */
 body {
-  min-width: 1200px;
+  min-width: 940px;
   margin: 0;
   padding: 0;
   font-family: Cuprum, "PT Sans", Arial, sans-serif;
@@ -68,6 +68,11 @@ body {
   font-weight: 400;
   color: var(--basic-white);
   background-color: var(--basic-white);   /* ЗАМЕНИТЬ НА БЕЛЫЙ */
+
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  align-content: start;
 }
 
 img {
@@ -78,14 +83,25 @@ img {
 a {
   text-decoration: none;
 }
+/* GRID */
+.page {
+  height: 100%;
+}
 
 /* HEADER */
 .main-header {
   background-color: var(--basic-block-service);
+  margin-bottom: 60px;
+}
+.smooth, .container {
+  width: 940px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 .main-logo {
   background-color: var(--basic-button-rest);
   box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.24);
+  width: 220px;
 }
 .main-logo:active{
   background-color: var(--basic-logo-click);   /* на главной убрать  */
@@ -102,8 +118,19 @@ a {
 .main-search input:focus {
   background-color: var(--basic-white);
 }
-.background-header {
+.main-bar {
   background-color: var(--basic-header-rest);
+}
+.background-header {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+}
+.main-cart {
+  justify-self: end;
+}
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .checkout {
   background-color: var(--basic-block-cart);
@@ -160,6 +187,9 @@ a {
   font-size: 21px;
   line-height: 21px;
 }
+.login {
+  text-align: right;
+}
 .login a:hover,
 .login a:focus,
 .personal-infomation:hover,
@@ -175,6 +205,11 @@ a {
 .personal-account:active,
 .orders:active {
   color: var(--basic-click);
+}
+.head-navigation {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
 }
 .head-navigation ul{
   list-style: none;
@@ -195,21 +230,43 @@ a {
 /* CATALOG categories */
 .categories-list{
   list-style: none;
+  display: grid;
+  grid-template-rows: 123px auto;
+  grid-template-columns: 300px 300px 300px;
+  padding: 0;
+  grid-gap: 20px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  grid-template-areas:
+    "o1 o2 o3"
+    "o4 o4 o5"
+    "o4 o4 o6";
 }
+
 .categories-materials {
   background-color: var(--basic-category-materials);
+  justify-content: left;
+  grid-area: o1;
 }
 .categories-tool {
   background-color: var(--basic-category-tools);
+  grid-area: o2;
 }
 .categories-technics {
   background-color: var(--basic-category-technic);
+  grid-area:o3;
 }
 .categories-sale {
   background-color: var(--basic-category-sale);
+  /*grid-column: 3/4;*/
+  /*grid-row: 2/-2;*/
+  grid-area: o5;
 }
 .categories-delivery {
   background-color: var(--basic-category-delivery);
+  /*grid-column: 3/4;*/
+  /*grid-row: 3/-1;*/
+  grid-area:o6;
 }
 .categories-list a {
   font-size: 14px;
@@ -255,7 +312,6 @@ a {
   background-color: var(--basic-button-click);
 }
 
-
 /* popular goods */
 .block-popular {
   background-color: var(--basic-background-popular);
@@ -280,6 +336,14 @@ a {
 }
 .button-red:active {
   background-color: var(--basic-button-click);
+}
+.popular-product-list {
+  display: grid;
+  grid-template-columns: 220px 220px 220px 220px;
+  padding: 0;
+  grid-gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 60px;
 }
 .popular-product-list, .catalog-list {
   list-style: none;
@@ -364,6 +428,12 @@ em .emerging-bookmarks{
 
 .popular-manufacturer-list {
   list-style: none;
+  display: grid;
+  grid-template-columns: 220px 220px 220px 220px;
+  padding: 0;
+  grid-gap: 20px;
+  margin-bottom: 60px;
+  margin-top: 20px;
 }
 .popular-manufacturer-item {
   background-color: var(--basic-white);
@@ -384,9 +454,15 @@ em .emerging-bookmarks{
 /* block service  */
 .service {
   background-color: var(--basic-block-service);
+  display: grid;
+  grid-template-columns: 1fr 261px 1fr;
+}
+.grid3 {
+  grid-column: 1/-1;
 }
 .service-list {
   list-style: none;
+  margin-top: 60px;
 }
 .service h2, .description-perforators h2 {
   color: var(--basic-black);
@@ -402,6 +478,7 @@ em .emerging-bookmarks{
 }
 .description-service {
   list-style: none;
+  margin-top: 35px;
 }
 .description-service h2, .h2-catalog {
   color: var(--basic-block-popular);
@@ -437,6 +514,12 @@ em .emerging-bookmarks{
 
 
 /*  description-company  */
+.grid4 {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
 .description-company h2 {
   color: var(--basic-black);
   text-transform: none;
@@ -472,16 +555,25 @@ em .emerging-bookmarks{
 .main-footer {
   background-color: var(--basic-nav-rest);
 }
+.grid5 {
+  display: grid;
+  grid-template-columns: 325px 1fr;
+  grid-template-rows: 150px 1fr;
+}
 .footer-logo {
   background-color: var(--basic-button-rest);
   box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.24);
+  width: 220px;
+  height: 68px;
 }
 .footer-logo:active{
   background-color: var(--basic-logo-click);   /* на главной убрать  */
 }
 .footer-logo a:hover,
 .footer-logo a:focus{}
-
+.footer-navigation {
+  justify-self: right;
+}
 .footer-navigation-list {
   list-style: none;
 }
@@ -496,6 +588,10 @@ em .emerging-bookmarks{
   opacity: 0.5;
   text-decoration: none;
 }
+/*.grid6 {*/
+/*  display: grid;*/
+/*  grid-template-columns: 1fr 1fr;*/
+/*}*/
 .footer-contact {
   color: var(--basic-footer-contact);
 }
@@ -504,6 +600,9 @@ em .emerging-bookmarks{
 }
 .navigation-catalog-list {
   list-style: none;
+}
+.navigation-catalog {
+  justify-self: right;
 }
 .navigation-catalog-list a {
   color: var(--basic-footer-catalog);
@@ -519,8 +618,12 @@ em .emerging-bookmarks{
 
 
 /* social */
-.social {
+.footer-bar {
   background-color: var(--basic-header-rest);
+}
+.social {
+  display: grid;
+  grid-template-columns: 325px 1fr 150px 150px;
 }
 .social p {
   font-size: 16px;
