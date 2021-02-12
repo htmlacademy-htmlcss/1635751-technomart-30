@@ -59,7 +59,7 @@
 
 /* Global */
 body {
-  min-width: 1200px;
+  min-width: 940px;
   margin: 0;
   padding: 0;
   font-family: Cuprum, "PT Sans", Arial, sans-serif;
@@ -68,24 +68,67 @@ body {
   font-weight: 400;
   color: var(--basic-white);
   background-color: var(--basic-white);   /* ЗАМЕНИТЬ НА БЕЛЫЙ */
-}
 
-img {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  align-content: start;
+}
+.catalog-item img,
+.logo-img img,
+.contact img,
+.manufacturer-img img,
+.popular-product-item img {
   max-width: 100%;
   height: auto;
 }
-
-a {
+.pagination-item a,
+.catalog-item a,
+.breadcrumbs-list a,
+.account a,
+.main-logo a,
+.main-cart a,
+.info-contact a,
+.login a,
+.navigation-item a,
+.categories-materials a,
+.categories-tool a,
+.categories-technics a,
+.categories-sale a,
+.categories-delivery a,
+.categories-perforators a,
+.block-popular a,
+.popular-product-item a,
+.hover-button a,
+.popular-manufacturer-item a,
+.description-company a,
+.contact a,
+.footer-logo a,
+.footer-navigation-item a,
+.footer-contact a,
+.navigation-catalog-item a,
+.social-item a {
   text-decoration: none;
+}
+/* GRID */
+.page {
+  height: 100%;
 }
 
 /* HEADER */
 .main-header {
   background-color: var(--basic-block-service);
+  margin: 0;
+}
+.smooth, .container {
+  width: 940px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 .main-logo {
   background-color: var(--basic-button-rest);
   box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.24);
+  width: 220px;
 }
 .main-logo:active{
   background-color: var(--basic-logo-click);   /* на главной убрать  */
@@ -102,8 +145,21 @@ a {
 .main-search input:focus {
   background-color: var(--basic-white);
 }
-.background-header {
+.main-bar {
   background-color: var(--basic-header-rest);
+}
+.background-header {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+}
+.main-cart {
+  justify-self: end;
+}
+.head-information {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  column-gap: 20px;
+  margin-top: 41px;
 }
 .checkout {
   background-color: var(--basic-block-cart);
@@ -141,11 +197,17 @@ a {
   font-size: 16px;
   line-height: 23px;
 }
-.head-contact {
+.head-title p, .head-contact p {
+  margin: 0;
+  padding: 0;
+}
+.head-contact{
   color: var(--basic-block-popular);
   font-size: 14px;
   line-height: 24px;
   text-align: center;
+  padding: 0;
+  margin: 0;
 }
 .head-phone {
   color: var(--basic-hover);
@@ -159,6 +221,11 @@ a {
   color: var(--basic-black);
   font-size: 21px;
   line-height: 21px;
+}
+.login .account {
+  text-align: right;
+  margin: 0;
+  padding: 0;
 }
 .login a:hover,
 .login a:focus,
@@ -175,6 +242,12 @@ a {
 .personal-account:active,
 .orders:active {
   color: var(--basic-click);
+}
+.head-navigation {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  margin-bottom: 60px;
 }
 .head-navigation ul{
   list-style: none;
@@ -195,21 +268,43 @@ a {
 /* CATALOG categories */
 .categories-list{
   list-style: none;
+  display: grid;
+  grid-template-rows: 123px auto;
+  grid-template-columns: 300px 300px 300px;
+  padding: 0;
+  grid-gap: 20px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  grid-template-areas:
+    "o1 o2 o3"
+    "o4 o4 o5"
+    "o4 o4 o6";
 }
+
 .categories-materials {
   background-color: var(--basic-category-materials);
+  justify-content: left;
+  grid-area: o1;
 }
 .categories-tool {
   background-color: var(--basic-category-tools);
+  grid-area: o2;
 }
 .categories-technics {
   background-color: var(--basic-category-technic);
+  grid-area:o3;
 }
 .categories-sale {
   background-color: var(--basic-category-sale);
+  /*grid-column: 3/4;*/
+  /*grid-row: 2/-2;*/
+  grid-area: o5;
 }
 .categories-delivery {
   background-color: var(--basic-category-delivery);
+  /*grid-column: 3/4;*/
+  /*grid-row: 3/-1;*/
+  grid-area:o6;
 }
 .categories-list a {
   font-size: 14px;
@@ -229,6 +324,10 @@ a {
 }
 .categories-list a:active{
   background-color: var(--basic-active-rgba);
+}
+.categories-perforators {
+  grid-area: o4;
+  background-image: url("../img/perforator.jpg");
 }
 .categories-perforators h2 {
   background-color: var(--basic-category-perforators);
@@ -255,12 +354,11 @@ a {
   background-color: var(--basic-button-click);
 }
 
-
 /* popular goods */
 .block-popular {
   background-color: var(--basic-background-popular);
 }
- .block-popular h2 {
+.block-popular h2 {
   font-size: 30px;
   line-height: 30px;
   color: var(--basic-block-popular);
@@ -280,6 +378,14 @@ a {
 }
 .button-red:active {
   background-color: var(--basic-button-click);
+}
+.popular-product-list {
+  display: grid;
+  grid-template-columns: 220px 220px 220px 220px;
+  padding: 0;
+  grid-gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 60px;
 }
 .popular-product-list, .catalog-list {
   list-style: none;
@@ -305,7 +411,7 @@ a {
   line-height: 18px;
   font-weight: bold;
 }
-em {
+.popular-product-item em, .catalog-item em {
   display: none;
 }
 .popular-product-item:hover em,
@@ -364,6 +470,12 @@ em .emerging-bookmarks{
 
 .popular-manufacturer-list {
   list-style: none;
+  display: grid;
+  grid-template-columns: 220px 220px 220px 220px;
+  padding: 0;
+  grid-gap: 20px;
+  margin-bottom: 60px;
+  margin-top: 20px;
 }
 .popular-manufacturer-item {
   background-color: var(--basic-white);
@@ -384,9 +496,15 @@ em .emerging-bookmarks{
 /* block service  */
 .service {
   background-color: var(--basic-block-service);
+  display: grid;
+  grid-template-columns: 1fr 261px 1fr;
+}
+.grid-service {
+  grid-column: 1/-1;
 }
 .service-list {
   list-style: none;
+  margin-top: 60px;
 }
 .service h2, .description-perforators h2 {
   color: var(--basic-black);
@@ -402,6 +520,7 @@ em .emerging-bookmarks{
 }
 .description-service {
   list-style: none;
+  margin-top: 35px;
 }
 .description-service h2, .h2-catalog {
   color: var(--basic-block-popular);
@@ -437,6 +556,12 @@ em .emerging-bookmarks{
 
 
 /*  description-company  */
+.tehnomart-information {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
 .description-company h2 {
   color: var(--basic-black);
   text-transform: none;
@@ -472,16 +597,25 @@ em .emerging-bookmarks{
 .main-footer {
   background-color: var(--basic-nav-rest);
 }
+.grid-footer {
+  display: grid;
+  grid-template-columns: 325px 1fr;
+  grid-template-rows: 150px 1fr;
+}
 .footer-logo {
   background-color: var(--basic-button-rest);
   box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.24);
+  width: 220px;
+  height: 68px;
 }
 .footer-logo:active{
   background-color: var(--basic-logo-click);   /* на главной убрать  */
 }
 .footer-logo a:hover,
 .footer-logo a:focus{}
-
+.footer-navigation {
+  justify-self: right;
+}
 .footer-navigation-list {
   list-style: none;
 }
@@ -505,6 +639,9 @@ em .emerging-bookmarks{
 .navigation-catalog-list {
   list-style: none;
 }
+.navigation-catalog {
+  justify-self: right;
+}
 .navigation-catalog-list a {
   color: var(--basic-footer-catalog);
 }
@@ -519,8 +656,12 @@ em .emerging-bookmarks{
 
 
 /* social */
-.social {
+.footer-bar {
   background-color: var(--basic-header-rest);
+}
+.social {
+  display: grid;
+  grid-template-columns: 325px 1fr 150px 150px;
 }
 .social p {
   font-size: 16px;
@@ -556,7 +697,7 @@ em .emerging-bookmarks{
   text-decoration: none;
 }
 
-    /* catalog header*/
+/* catalog header*/
 .cart-item {
   background-color: var(--basic-button-rest);
 }
@@ -567,6 +708,16 @@ em .emerging-bookmarks{
 }
 .breadcrumbs {
   list-style: none;
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--basic-black);
+  text-transform: uppercase;
+
 }
 .breadcrumbs a, .breadcrumbs-current {
   font-family: 'PT Sans', sans-serif;
@@ -575,17 +726,40 @@ em .emerging-bookmarks{
   line-height: 18px;
   color: var(--basic-black);
   text-transform: uppercase;
+
 }
 .breadcrumbs-current {
   color: var(--basic-sales-product);
 }
 
-/* filters adn sorting*/
+/* catalog page filters and sorting*/
+.catalog-item {
+  height: 318px;
+  width: 220px;
+}
+.catalog-list {
+  display: grid;
+  grid-template-columns: 220px 220px 220px;
+  margin-top: 8px;
+  padding: 0;
+  column-gap: 20px;
+}
+.page-catalog {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-content: start;
+  grid-gap: 20px;
+}
 .h2-catalog {
   background-color: var(--basic-block-name);
+  grid-column: 1 / -1;
+  height: 89px;
+  margin: 0;
+  padding: 0;
 }
 .sorting {
   background-color: var(--basic-block-content);
+  grid-column: 2 / -1;
 }
 .sorting-list {
   list-style: none;
@@ -599,6 +773,8 @@ em .emerging-bookmarks{
   font-style: normal;
   font-weight: normal;
   text-transform: uppercase;
+  padding: 0;
+  margin: 0;
 }
 .sorting-item label{
   opacity: 0.3;
@@ -618,6 +794,12 @@ em .emerging-bookmarks{
 }
 .filters h3 {
   background-color: var(--basic-block-content);
+  width: 220px;
+  height: 38px;
+}
+.filters {
+  grid-column: 1 / 2;
+  grid-row: 3 / 5;
 }
 .filters legend {
   font-size: 17px;
@@ -667,6 +849,8 @@ em .emerging-bookmarks{
 /* pagination-list */
 .pagination-list {
   list-style: none;
+  margin-bottom: 60px;
+  margin-top: 50px;
 }
 .pagination-item a{
   border: 1px solid var(--basic-border-pagination);
@@ -690,9 +874,15 @@ em .emerging-bookmarks{
   color: var(--basic-white);
 }
 
-   /*description page*/
+/*description page*/
 
 .description-perforators  {
   background-color: var(--basic-block-service);
+  grid-column: 1 / -1;
 }
-
+.description-perforators h2 {
+  margin-top: 60px;
+}
+.description-perforators p {
+  margin-bottom: 60px;
+}
