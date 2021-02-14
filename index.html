@@ -26,9 +26,9 @@
           <input type="search" name="search" placeholder="Поиск:">
         </form>
         <div class="main-cart">
-          <a class="bookmark" href="#">Закладки:0</a>
-          <a class="cart" href="#">Корзина:0</a>
-          <a class="checkout" href="#">Оформить заказ</a>
+          <a class="main-cart__item bookmark" href="#">Закладки:0</a>
+          <a class="main-cart__item cart" href="#">Корзина:0</a>
+          <a class="main-cart__item checkout" href="#">Оформить заказ</a>
         </div>
       </section>
     </section>
@@ -38,7 +38,8 @@
       <div class="head-title">
         <p>Интернет-магазин<br>
           строительных материалов<br>
-          и инструментов для ремонта</p>
+          и инструментов для ремонта
+        </p>
       </div>
       <div class="head-contact">
         <p class="info-contact">
@@ -47,8 +48,8 @@
         </p>
       </div>
       <div class="login">
-        <a href="#">Войти</a>
-        <a href="#">Регистация</a>
+        <a class="login-enter" href="#">Войти</a>
+        <a class="login-reg" href="#">Регистация</a>
       </div>
     </section>
     <nav class="head-navigation">
@@ -76,34 +77,99 @@
     </nav>
   </div>
 </header>
+<!--</head>-->
+<!--<body class="page-body">-->
+<!--<header class="main-header">-->
+<!--  <div class="main-bar">-->
+<!--    <section class="smooth container">-->
+<!--      <section class="background-header">-->
+<!--        <div class="main-logo">-->
+<!--          <a class="logo-img">-->
+<!--            <img src="img/icons/logohead.svg" height="18" width="108" alt="logo-technomart-head">-->
+<!--          </a>-->
+<!--        </div>-->
+<!--        <form class="main-search">-->
+<!--          <input type="search" name="search" placeholder="Поиск:">-->
+<!--        </form>-->
+<!--        <div class="main-cart">-->
+<!--          <a class="bookmark" href="#">Закладки:0</a>-->
+<!--          <a class="cart" href="#">Корзина:0</a>-->
+<!--          <a class="checkout" href="#">Оформить заказ</a>-->
+<!--        </div>-->
+<!--      </section>-->
+<!--    </section>-->
+<!--  </div>-->
+<!--  <div class="container smooth">-->
+<!--    <section class="head-information">-->
+<!--      <div class="head-title">-->
+<!--        <p>Интернет-магазин<br>-->
+<!--          строительных материалов<br>-->
+<!--          и инструментов для ремонта</p>-->
+<!--      </div>-->
+<!--      <div class="head-contact">-->
+<!--        <p class="info-contact">-->
+<!--          <a class="head-phone" href="tel:+78125550555">+7 (812) 555-05-55</a>-->
+<!--          г. Санкт-Петербург, ул. Б.Конюшенная, д. 19/8-->
+<!--        </p>-->
+<!--      </div>-->
+<!--      <div class="login">-->
+<!--        <a href="#">Войти</a>-->
+<!--        <a href="#">Регистация</a>-->
+<!--      </div>-->
+<!--    </section>-->
+<!--    <nav class="head-navigation">-->
+<!--      <ul class="navigation-list">-->
+<!--        <li class="navigation-item">-->
+<!--          <a href="index.html">Главная</a>-->
+<!--        </li>-->
+<!--        <li class="navigation-item">-->
+<!--          <a href="#">Компания</a></li>-->
+<!--        <li class="navigation-item"><a href="catalog.html">Каталог</a>-->
+<!--        </li>-->
+<!--        <li class="navigation-item">-->
+<!--          <a href="#">Новости</a>-->
+<!--        </li>-->
+<!--        <li class="navigation-item">-->
+<!--          <a href="#">Спецпредложения</a>-->
+<!--        </li>-->
+<!--        <li class="navigation-item">-->
+<!--          <a href="#">Доставка</a>-->
+<!--        </li>-->
+<!--        <li class="navigation-item">-->
+<!--          <a href="#">Костакты</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+<!--  </div>-->
+<!--</header>-->
 <main class="container">
   <section class="categories">
     <ul class="categories-list">
-      <li class="categories-materials">
+      <li class="categories-item categories-materials">
         <h3>Материалы</h3>
         <a href="#">на любой вкус</a>
       </li>
-      <li class="categories-tool">
+      <li class="categories-item categories-tool">
         <h3>Инструмент</h3>
         <a href="#">на все случаи</a>
       </li>
-      <li class="categories-technics">
+      <li class="categories-item categories-technics">
         <h3>Техника</h3>
         <a href="#">для стройки</a>
-      </li>
-      <li class="categories-sale">
-        <h3>Скидка 50%</h3>
-        <a href="#">на 350 товаров</a>
-      </li>
-      <li class="categories-delivery">
-        <h3>Доставка</h3>
-        <a href="#">бесплатно</a>
       </li>
       <li class="categories-perforators">
         <!--        <img src="img/perforator.jpg" width="620" height="266" alt="Перфораторы">-->
         <h2>Перфораторы</h2>
         <p>настоящие мужские игрушки</p>
         <a class="button-red" href="catalog.html">Открыть каталог</a>
+      <li class="categories-item categories-sale">
+        <h3>Скидка 50%</h3>
+        <a href="#">на 350 товаров</a>
+      </li>
+      <li class="categories-item categories-delivery">
+        <h3>Доставка</h3>
+        <a href="#">бесплатно</a>
+      </li>
     </ul>
   </section>
   <section class="popular-product">
