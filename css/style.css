@@ -270,11 +270,26 @@ body {
   margin: 0;
   padding: 0;
 }
+.account {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+}
 .login a, .personal-infomation {
   background-color: var(--basic-white);
   color: var(--basic-black);
   font-size: 21px;
   line-height: 21px;
+}
+.personal-infomation {
+  width: 299px;
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .login .account {
   text-align: right;
@@ -477,7 +492,7 @@ body {
   width: 192px;
   height: 38px;
 }
-.block-popular h2 {
+.block-popular h2, .h2-catalog {
   font-size: 30px;
   line-height: 30px;
   color: var(--basic-block-popular);
@@ -1016,13 +1031,17 @@ em .emerging-bookmarks{
   list-style: none;
   grid-column: 1 / -1;
   margin: 0;
-  padding: 0;
+  padding: 20px 0 0 0;
   font-family: 'PT Sans', sans-serif;
   font-style: normal;
   font-size: 13px;
   line-height: 18px;
   color: var(--basic-black);
   text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 .breadcrumbs a, .breadcrumbs-current {
   font-family: 'PT Sans', sans-serif;
@@ -1031,23 +1050,15 @@ em .emerging-bookmarks{
   line-height: 18px;
   color: var(--basic-black);
   text-transform: uppercase;
+  padding-right: 40px;
+  margin: 0;
+
 }
 .breadcrumbs-current {
   color: var(--basic-sales-product);
 }
 
 /* catalog page filters and sorting*/
-.catalog-item {
-  height: 318px;
-  width: 220px;
-}
-.catalog-list {
-  display: grid;
-  grid-template-columns: 220px 220px 220px;
-  margin-top: 8px;
-  padding: 0;
-  column-gap: 20px;
-}
 .page-catalog {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -1055,11 +1066,14 @@ em .emerging-bookmarks{
   grid-gap: 20px;
 }
 .h2-catalog {
-  background-color: var(--basic-block-name);
-  grid-column: 1 / -1;
+  background-color: var(--basic-background-popular);
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  /*justify-content: flex-start;*/
+  /*align-items: center;*/
+  /*width: 940px;*/
   height: 89px;
-  margin: 0;
-  padding: 0;
+  grid-column: 1 / -1;
 }
 .sorting {
   background-color: var(--basic-block-content);
@@ -1145,6 +1159,17 @@ em .emerging-bookmarks{
   background-color: var(--basic-white);
   font-size: 13px;
   line-height: 18px;
+}
+.catalog-item {
+  height: 318px;
+  width: 220px;
+}
+.catalog-list {
+  display: grid;
+  grid-template-columns: 220px 220px 220px;
+  margin-top: 8px;
+  padding: 0;
+  column-gap: 20px;
 }
 
 
