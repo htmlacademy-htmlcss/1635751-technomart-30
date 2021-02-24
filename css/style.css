@@ -166,6 +166,22 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.main-cart .bookmark, .main-cart .cart {
+  padding-left: 50px;
+  position: relative;
+}
+.bookmark::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 18px;
+  top: 13px;
+  left: 24px;
+  background-image: url("../img/icons/icon-bookmark.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: 0.3;
+}
 .main-cart__item {
   display: flex;
   justify-content: center;
@@ -181,8 +197,22 @@ body {
   width: 270px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .info-contact a {
+  padding: 0;
+  margin: 0;
+}
+.info-contact .head-phone::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 18px;
+  top: 9px;
+  left: 24px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-image: url("../img/icons/icon-phone.svg");
   padding: 0;
   margin: 0;
 }
@@ -200,28 +230,48 @@ body {
   background-color: var(--basic-block-cart);
   color: var(--basic-rgba-header);
 }
-.cart:focus,
-.cart:hover{}
-.cart:active{
+.main-cart .cart:active{
   background-color: var(--basic-bookmarks-click);
   color: var(--basic-rgba-header);
+}
+.main-cart .cart:focus::before,
+.main-cart .cart:hover::before {
+  opacity: 1;
+}
+.main-cart .cart:active::before {
+  opacity: 0.3;
 }
 .cart, .cart-item {
   color: var(--basic-white);
 }
-.cart {
-  min-width: 150px;
+.cart::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 16px;
+  top: 13px;
+  left: 24px;
+  background-image: url("../img/icons/icon-carticon-cart.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: 0.3;
+  /*min-width: 150px;*/
 }
 .bookmark {
   color: var(--basic-white);
-  min-width: 150px;
+  /*min-width: 150px;*/
 }
-.bookmark:active{
+.main-cart .bookmark:active{
   background-color: var(--basic-bookmarks-click);
   color: var(--basic-rgba-header);
 }
-.bookmark a:hover,
-.bookmark a:focus{}
+.main-cart .bookmark:active::before {
+  opacity: 0.3;
+}
+.main-cart .bookmark:hover::before,
+.main-cart .bookmark:focus::before {
+  opacity: 1;
+}
 .head-title {
   color: var(--basic-hover);
   font: inherit;
@@ -315,11 +365,7 @@ body {
 .head-navigation {
   background: var(--basic-nav-rest);
   margin-bottom: 60px;
-  padding: 16px 53px 20px;
-}
-.head-navigation a{
-  background-color: var(--basic-nav-rest);
-  color: var(--basic-white);
+  /*padding: 16px 53px 20px;*/
 }
 .head-navigation a:hover,
 .head-navigation a:focus{
@@ -331,6 +377,7 @@ body {
 .navigation-list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 0;
@@ -338,7 +385,12 @@ body {
   list-style: none;
 }
 .navigation-item a{
-  height: 60px;
+  /*height: 60px;*/
+  display: block;
+  padding: 27px 16px 24px 20px;
+  margin: 0;
+  background-color: var(--basic-nav-rest);
+  color: var(--basic-white);
 }
 
 
