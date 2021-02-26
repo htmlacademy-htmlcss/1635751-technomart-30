@@ -69,7 +69,6 @@ body {
   font-weight: 400;
   color: var(--basic-white);
   background-color: var(--basic-white);   /* ЗАМЕНИТЬ НА БЕЛЫЙ */
-
   min-height: 100%;
   display: grid;
   grid-template-rows: min-content 1fr min-content;
@@ -428,16 +427,17 @@ body {
 .navigation-item a{
   /*height: 60px;*/
   display: block;
-  padding: 0 28px 0 28px;
+  padding: 16px 28px 20px 28px;
   margin: 0;
   background-color: var(--basic-nav-rest);
   color: var(--basic-white);
+  box-shadow: inset 0 -5px 0 var(--basic-shadow-block-service);
 }
-.navigation-item .navigation-item:last-child {
-  padding: 0 53px 0 28px;
+.last-item a {
+  padding: 16px 53px 20px 28px;
 }
-.navigation-item .navigation-item:first-child {
-  padding: 0 28px 0 53px;
+.first-item a {
+  padding: 16px 28px 20px 53px;
 }
 
 /* CATALOG categories */
@@ -919,6 +919,12 @@ body {
   padding-left: 22px;
   box-sizing: border-box;
   margin: 0;
+  font-size: 21px;
+  line-height: 30px;
+  font-weight: bold;
+  color: var(--basic-white);
+  background-color: var(--basic-nav-rest) ;
+  box-shadow: 0 1px 0 var(--basic-shadow-block-service), inset 0 1px 0 var(--basic-shadow-block-service2);
 }
 .grid-service h2, .description-perforators h2 {
   color: var(--basic-black);
@@ -976,13 +982,13 @@ body {
   line-height: 24px;
   color: var(--basic-black);
 }
-.service-list label {
-  font-size: 21px;
-  line-height: 30px;
-  font-weight: bold;
-  color: var(--basic-white);
-  background-color: var(--basic-nav-rest) ;
-  box-shadow: 0 1px 0 var(--basic-shadow-block-service), inset 0 1px 0 var(--basic-shadow-block-service2);
+.service-item label {
+  /*font-size: 21px;*/
+  /*line-height: 30px;*/
+  /*font-weight: bold;*/
+  /*color: var(--basic-white);*/
+  /*background-color: var(--basic-nav-rest) ;*/
+  /*box-shadow: 0 1px 0 var(--basic-shadow-block-service), inset 0 1px 0 var(--basic-shadow-block-service2);*/
 }
 .service-item input:checked + label {
   color: var(--basic-block-popular);
