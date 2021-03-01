@@ -9,7 +9,7 @@
   --basic-footer-catalog: #FFD180;
   --basic-block-popular: #32425C;
   --basic-hover: #EE3643;               /*  текст при наведении курсора */
-  --basic-click: #C5C5C5;               /* текст при клике в блоке логина */
+  --basic-click: #c5c5c5;               /* текст при клике в блоке логина */
   --basic-footer-contact: #F3F7F9;
 
   /* Variables color background */
@@ -152,35 +152,17 @@ body {
 }
 .main-search input::placeholder {
   color: var(--basic-white);
-
 }
-/*.icon-search {*/
-/*  position: absolute;*/
-/*  background-image: url("../img/icons/icon-search.svg");*/
-/*  background-repeat: no-repeat;*/
-/*  background-position: 0 0;*/
-/*  width: 20px;*/
-/*  height: 20px;*/
-/*  top: 13px;*/
-/*  left: 11px;*/
-/*}*/
 .main-search svg {
   top: 13px;
   left: 11px;
   position: absolute;
 }
 .main-search input:focus + svg path {
-  fill: red
+  fill: var(--basic-button-rest);
 }
 .main-search input:focus {
   background-color: var(--basic-white);
-}
-/*.main-search:focus path {*/
-/*  fill: var(--basic-hover);*/
-/*}*/
-.main-search input:focus + .icon-search {
-  background-image: url("../img/icons/icon-search-focus.svg");
-  /*fill: var(--basic-hover);*/
 }
 .main-bar {
   background-color: var(--basic-header-rest);
@@ -376,13 +358,13 @@ body {
   align-items: center;
   position: relative;
 }
-.login a, .personal-infomation {
+.login a, .personal-infomation a {
   background-color: var(--basic-white);
   color: var(--basic-black);
   font-size: 21px;
   line-height: 21px;
 }
-.personal-infomation {
+.personal-infomation a:first-of-type {
   width: 299px;
   height: 45px;
   display: flex;
@@ -390,27 +372,22 @@ body {
   justify-content: center;
   align-items: center;
 }
-.personal-infomation::before {
+.personal-cabinet svg {
   position: absolute;
-  content: "";
   width: 22px;
   height: 22px;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-image: url("../img/icons/icon-user.svg");
-  top: 14px;
-  left: 14px;
+  top: 12px;
+  left: 16px;
 }
-.exit-account {
+.exit-account svg {
   position: absolute;
-  content: "";
   width: 22px;
   height: 22px;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-image: url("../img/icons/icon-logout.svg");
-  top: 14px;
-  right: 14px;
+  top: 12px;
+  right: 15px;
+}
+.personal-infomation svg:hover path {
+  fill: var(--basic-button-login);
 }
 .login .account {
   text-align: right;
@@ -419,8 +396,6 @@ body {
 }
 .login a:hover,
 .login a:focus,
-.personal-infomation:hover,
-.personal-infomation:focus,
 .orders:hover,
 .orders:focus,
 .personal-account:hover,
@@ -428,10 +403,15 @@ body {
   color: var(--basic-hover);
 }
 .login a:active,
-.personal-infomation:active,
+.personal-infomation svg:active path,
+.personal-infomation a:active,
 .personal-account:active,
 .orders:active {
   color: var(--basic-click);
+  fill: var(--basic-click);
+}
+.menu-account {
+
 }
 .head-navigation {
   background: var(--basic-nav-rest);
@@ -1269,6 +1249,24 @@ body {
   line-height: 18px;
   color: var(--basic-block-popular);
 }
+.orders {
+  padding-right: 15px;
+}
+personal-account {
+  padding-left: 15px;
+}
+.orders::before {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: linear-gradient(#32425C, #32425C);
+  border-radius: 50%;
+  height: 4px;
+  width: 4px;
+  top: 56px;
+  left: 133px;
+}
 .breadcrumbs {
   list-style: none;
   grid-column: 1 / -1;
@@ -1283,7 +1281,28 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  flex-wrap: wrap;
   align-items: center;
+  /*position: relative;*/
+}
+.breadcrumbs-home a::after {
+  top: -6px;
+  left: -53px;
+  height: 20px;
+  width: 20px;
+}
+.breadcrumbs-list {
+  position: relative;
+  margin-right: 40px;
+}
+.breadcrumbs-list::after {
+  content: "";
+  position: absolute;
+  background-image: url("../img/icons/icon-right-small.svg");
+  top: 2px;
+  right: -26px;
+  height: 12px;
+  width: 7px;
 }
 .breadcrumbs a, .breadcrumbs-current {
   font-family: 'PT Sans', sans-serif;
@@ -1292,7 +1311,7 @@ body {
   line-height: 18px;
   color: var(--basic-black);
   text-transform: uppercase;
-  padding-right: 40px;
+  padding: 0;
   margin: 0;
 
 }
