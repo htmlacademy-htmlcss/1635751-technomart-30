@@ -32,6 +32,11 @@
   --basic-background-popap: #F1F1F1;
   --basic-rgba-header: rgba(255, 255, 255, 0.5);
   --basic-button-login: #3D546F;
+  --basic-range-controls: #D7DCDE;
+  --basic-bar-price: #00ca74;
+  --basic-circle-shadow: rgba(171, 171, 171, 0.3);
+  --basic-circle-price: #ABABAB;
+  --basic-waning: #C5C5C5;
 
   /* Variables background block categories catalog */
 
@@ -1295,6 +1300,9 @@ personal-account {
   position: relative;
   margin-right: 40px;
 }
+.breadcrumbs-list:last-of-type::after {
+  display: none;
+}
 .breadcrumbs-list::after {
   content: "";
   position: absolute;
@@ -1384,7 +1392,7 @@ personal-account {
 .sorting-list-2 .sorting-item:nth-child(1n) {
   padding-right: 15px;
 }
-.sorting-item label, .filters h3, .filters {
+.sorting-item .sorting-label, .filters h3, .filters {
   color: var(--basic-black);
   font-size: 13px;
   line-height: 18px;
@@ -1395,7 +1403,7 @@ personal-account {
   padding: 0;
   margin: 0;
 }
-.sorting-item label{
+.sorting-item .sorting-label{
   opacity: 0.3;
   border-bottom: 1px dotted var(--basic-hover);
   list-style: none;
@@ -1408,11 +1416,39 @@ personal-account {
   opacity: 1;
   border-bottom: none;
 }
-.sorting-item label:hover {
+.sorting-item .sorting-label:hover {
   color: var(--basic-black);
   opacity: 1;
   border-bottom: 1px solid var(--basic-hover);
   line-height: 17px;
+}
+.sorting-list-2 .waning:hover {
+  border-top: 10px solid var(--basic-black);
+}
+.sorting-list-2 .increase:hover {
+  border-bottom: 10px solid var(--basic-black);
+}
+.sorting-list-2 input:checked + .waning {
+  border-top: 10px solid var(--basic-hover);
+}
+.sorting-list-2 input:checked + .increase {
+  border-bottom: 10px solid var(--basic-hover);
+}
+.increase {
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-right-width: 5px;
+  border-left-width: 5px;
+  border-bottom: 10px solid var(--basic-waning);
+}
+.waning {
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-left-width: 5px;
+  border-right-width: 5px;
+  border-top: 10px solid var(--basic-waning);
 }
 .filters h3 {
   color: var(--basic-black);
@@ -1442,6 +1478,20 @@ personal-account {
   border: none;
   margin-bottom: 30px;
 }
+.range-filter {
+  width: 220px;
+  /*margin-top: 50px;*/
+}
+.range-controls {
+  position: relative;
+  height: 41px;
+  padding-top: 39px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: var(--basic-block-content);
+}
 .filters legend {
   font-size: 17px;
   line-height: 30px;
@@ -1450,8 +1500,50 @@ personal-account {
   padding: 15px 0 15px 0;
   margin: 0;
 }
-.price-max input, .price-min input, .price-range {
+.range-controls .scale {
+  height: 2px;
+  background: var(--basic-range-controls);
+}
+.range-controls .bar {
+  width: 80%;
+  height: 2px;
+  background: var(--basic-bar-price);
+}
+.range-controls .toggle {
+  position: absolute;
+  top: 31px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  padding: 0;
+  border: 8px solid var(--basic-white);
+  background-color: var(--basic-circle-price);
+  border-radius: 50%;
+  box-shadow: 0 2px 1px 0 var(--basic-circle-shadow);
+  cursor: pointer;
+}
+.range-controls .toggle-min {
+  left: 16px;
+}
+.range-controls .toggle-max {
+  left: 160px;
+}
+.price-controls input {
+  font-family: inherit;
+  font-size: inherit;
+  width: 95px;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
   background-color: var(--basic-block-content);
+  padding: 10px 0 10px 0;
+  margin: 0;
+}
+.price-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .manufacturer-filter ul {
   list-style: none;
