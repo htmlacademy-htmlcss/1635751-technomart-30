@@ -52,6 +52,7 @@
   --basic-hover-rgba: rgba(77.3, 77.3, 77.3, 0.3);
   --basic-active-rgba: rgba(169, 169, 169, 0.3);
   --basic-footer-active: rgba(241, 245, 247, 0.5);
+  --basic-filters-border: rgba(0, 0, 0, 0.0001);
   --basic-border-product: #EAEAEA;
   --basic-shadow-buy: #367315;
   --basic-border-bookmarks: #63A63E;
@@ -61,6 +62,7 @@
   --basic-gradient: #212A3A;
   --basic-border-pagination: #E5E5E5;
   --basic-border-active: #EE3643;
+  --basic-border-input: #C5C5C5;
 }
 
 /* Global */
@@ -1441,6 +1443,9 @@ personal-account {
   border-right-width: 5px;
   border-left-width: 5px;
   border-bottom: 10px solid var(--basic-waning);
+  margin: 9px 10px 0 0;
+  padding: 0 0 0 0;
+  display: block;
 }
 .waning {
   width: 0;
@@ -1449,6 +1454,9 @@ personal-account {
   border-left-width: 5px;
   border-right-width: 5px;
   border-top: 10px solid var(--basic-waning);
+  margin: 9px 5px 0 0;
+  padding: 0 0 0 0;
+  display: block;
 }
 .filters h3 {
   color: var(--basic-black);
@@ -1472,15 +1480,25 @@ personal-account {
   grid-column: 1 / 2;
   grid-row: 3 / 5;
 }
-.price-filter, .manufacturer-filter, .food-filter {
-  padding: 0;
+.price-filter {
+  padding: 0 0 25px 0;
   margin: 0;
   border: none;
-  margin-bottom: 30px;
+  border-bottom: 1px solid var(--basic-border-product);
+}
+.food-filter {
+  padding: 0 0 25px 0;
+  margin: 0;
+  border: none;
+}
+.manufacturer-filter {
+  padding: 0 0 7px 0;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid var(--basic-border-product);
 }
 .range-filter {
   width: 220px;
-  /*margin-top: 50px;*/
 }
 .range-controls {
   position: relative;
@@ -1499,6 +1517,10 @@ personal-account {
   font-weight: bold;
   padding: 15px 0 15px 0;
   margin: 0;
+}
+.filters legend:first-of-type {
+  padding: 14px 0 10px 0;
+  /*border-top: none;*/
 }
 .range-controls .scale {
   height: 2px;
@@ -1545,12 +1567,87 @@ personal-account {
   justify-content: space-between;
   align-items: center;
 }
-.manufacturer-filter ul {
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.manufacturer-filter ul,
+.food-filter ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .manufacturer-filter label {
   font-size: 15px;
   line-height: 19px;
+}
+.filter-option label {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  user-select: none;
+}
+.filter-option {
+  margin-bottom: 20px;
+  padding-left: 50px;
+}
+.filter-option {
+  margin-bottom: 20px;
+  padding-left: 50px;
+}
+.filter-input-checkbox + label::before {
+  content: "";
+  position: absolute;
+  width: 27px;
+  height: 23px;
+  background-image: url("../img/icons/icon-checkbox-off.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  top: 0px;
+  left: -50px;
+}
+.filter-input-checkbox:checked + label::before {
+  background-image: none;
+}
+.filter-input-checkbox:checked + label::after {
+  content: "";
+  position: absolute;
+  width: 27px;
+  height: 23px;
+  top: 0px;
+  left: -50px;
+  background-image: url("../img/icons/icon-checkbox-on.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.filter-input-radio + label::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -3px;
+  left: -50px;
+  border: 4px solid var(--basic-border-input);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.filter-input-radio:checked + label::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  top: 5px;
+  left: -42px;
+  background-color: var(--basic-border-input);
+  border-radius: 50%;
 }
 .filter-input-checkbox:hover + label,
 .filter-input-checkbox:focus + label,
@@ -1566,9 +1663,6 @@ personal-account {
 .filter-input-radio:disabled + label{
   opacity: 0.4;
 }
-.food-filter ul {
-  list-style: none;
-}
 .food-filter label {
   font-size: 15px;
   line-height: 19px
@@ -1577,11 +1671,13 @@ personal-account {
   background-color: var(--basic-white);
   font-size: 13px;
   line-height: 18px;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 220px;
   height: 38px;
+  border: 2px solid var(--basic-border-pagination);
 }
 .catalog-item {
   min-height: 318px;
